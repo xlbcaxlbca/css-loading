@@ -1,0 +1,58 @@
+$url: "../images/";
+$loadingW: 200px;
+$halfLoadingW: 100px;
+$delay: 2s;
+
+.loading{
+    width: $loadingW;
+    height: $loadingW;
+    overflow: hidden;
+
+    //左右外框宽度为loading图的一半，只显示一半
+    .leftDiv,
+    .rightDiv{
+        float: left;
+        position: relative;
+        width: $halfLoadingW;
+        height: $loadingW;
+        overflow: hidden;
+    }
+
+    //左右内框宽度为loading图宽度
+    .leftInnerDiv,
+    .rightInnerDiv{
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        background: url(#{$url}loading.png) no-repeat center 0;
+        background-size: $loadingW $loadingW;
+        border-radius: 50%;
+        box-sizing: border-box;
+
+    }
+
+    .leftInnerDiv {
+        //显示图右边的一半
+        clip: rect(0, $loadingW, $loadingW, $halfLoadingW);
+        //右半区旋转完成后，左半区开始旋转
+        // animation: rotate $delay 1 linear $delay;
+        // animation-fill-mode: forwards;
+    }
+    .rightInnerDiv {
+        //显示图左边的一半 位置左移$halfLoadingW
+        clip: rect(0, $halfLoadingW, $loadingW, 0);
+        left: -100%;
+
+        // animation: rotate $delay linear 1;
+        // animation-fill-mode: forwards;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(180deg)
+        }
+    }
+}
