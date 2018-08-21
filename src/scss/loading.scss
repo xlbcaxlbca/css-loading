@@ -2,8 +2,9 @@ $url: "../images/";
 $loadingW: 200px;
 $halfLoadingW: 100px;
 $delay: 2s;
+$circleDelay: 0.25s;
 
-.loading{
+.loadingByImage{
     width: $loadingW;
     height: $loadingW;
     overflow: hidden;
@@ -54,5 +55,73 @@ $delay: 2s;
         to {
             transform: rotate(180deg)
         }
+    }
+}
+
+.loadingByNormal{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    span{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: gray;
+        position: absolute;
+        animation: load 2s ease infinite;
+    }
+
+    @keyframes load {
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0.2;
+        }
+    }
+    span:nth-child(1){
+        left: 0;
+        top: 50%;
+        margin-top:-8px;
+        animation-delay:$circleDelay;
+    }
+     span:nth-child(2){
+        left: 14px;
+        top: 14px;
+        animation-delay:$circleDelay*2;
+    }
+     span:nth-child(3){
+        left: 50%;
+        top: 0;
+        margin-left: -8px;
+        animation-delay:$circleDelay*3;
+    }
+     span:nth-child(4){
+        top: 14px;
+        right:14px;
+        animation-delay:$circleDelay*4;
+    }
+     span:nth-child(5){
+        right: 0;
+        top: 50%;
+        margin-top:-8px;
+        animation-delay:$circleDelay*5;
+    }
+     span:nth-child(6){
+        right: 14px;
+        bottom:14px;
+        animation-delay:$circleDelay*6;
+    }
+     span:nth-child(7){
+        bottom: 0;
+        left: 50%;
+        margin-left: -8px;
+        animation-delay:$circleDelay*7;
+    }
+     span:nth-child(8){
+        bottom: 14px;
+        left: 14px;
+        animation-delay:$circleDelay*8;
     }
 }

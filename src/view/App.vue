@@ -1,13 +1,23 @@
 <template>
     <div class="vueCotnainer">
         这是vue里的文本
-        <div class="loading">
+        <div class="loadingByImage">
             <div class="leftDiv">
                 <div class="leftInnerDiv" id = "leftInnerDiv"></div>
             </div>
             <div class="rightDiv">
                 <div class="rightInnerDiv" id = "rightInnerDiv"></div>
             </div>
+        </div>
+        <div class="loadingByNormal">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 </template>
